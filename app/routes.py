@@ -4,7 +4,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_socketio import disconnect, emit, send
 
 
-BASE_URL = "127.0.0.1:5000"
+BASE_URL = "https://shortplay.herokuapp.com"
 
 
 sessions = {}

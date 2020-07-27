@@ -117,7 +117,7 @@ $(document).ready(() => {
 
   connect.on('restart_game', (msg) => {
     if (msg=='restart_game') {
-      restartGame()
+      startGame()
     }
   })
 });

@@ -5,6 +5,7 @@ from flask_socketio import disconnect, emit, send
 
 
 BASE_URL = "https://shortplay.herokuapp.com"
+# BASE_URL = "127.0.0.1:5000"
 
 
 sessions = {}
@@ -50,11 +51,12 @@ def accept_request(data):
     sid = request.sid
     accepted_by = sessions_re[sid]
     request_by = ongoing_game[accepted_by]
-    room = sessions[request_by]
+    room1 = sessions[request_by]
+    room2 = sessions[accepted_by]
     ongoing_game[request_by] = accepted_by
     if data['accepted']:
-        emit('request_accepted', {'accepted': True}, room=room)
-        emit('first_turn', {'myTurn': True}, room=sessions[accepted_by], namespace='/gameplay')
+        emit('request_accepted', {'accepted': True}, room=room1, namespace='/gameplay')
+        emit('first_turn', {'myTurn': True}, room=room2, namespace='/gameplay')
 
 
 @socketio.on('reject_request')

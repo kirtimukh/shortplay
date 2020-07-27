@@ -15,7 +15,7 @@ function requestPlay() {
 }
 
 
-connection.on('receive_request', data =>{
+connection.on('receive_request', data => {
   confirmDialog(data.request_by, ans => {
     if (ans) {
       document.getElementById("arena").style.display = 'block'
@@ -24,14 +24,6 @@ connection.on('receive_request', data =>{
       connection.emit('reject_request', {'reject_request': true})
     }
    });
-})
-
-
-connection.on('request_accepted', data => {
-  if (data.accepted) {
-    document.getElementById("arena").style.display = 'block'
-    document.getElementById("board").style.pointerEvents = 'none'
-  }
 })
 
 

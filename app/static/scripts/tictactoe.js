@@ -2,7 +2,7 @@ $(document).ready(() => {
   const X_CLASS = 'x'
   const CIRCLE_CLASS = 'circle'
   const END = 'end'
-  const WINNING_COMBINATIONS = [ //////// here
+  const WINNING_COMBINATIONS = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -18,19 +18,28 @@ $(document).ready(() => {
   const restartButton = document.getElementById('restartButton')
   const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
   let circleTurn
+  let firstMove = false
   let myTurn = false
 
-  startGame()       ////////    here
+  restartButton.addEventListener('click', restartGame)
 
-  restartButton.addEventListener('click', restartGame)       /////////    here
+  function firstTurn() {
+    firstMove = !firstMove
+    if (firstMove) {
+      document.getElementById("board").style.pointerEvents = 'auto'
+    } else {
+      document.getElementById("board").style.pointerEvents = 'none'
+    }
+  }
 
   function restartGame() {
     startGame()
+    firstTurn()
     connect.emit('restart_game', 'restart_game')
   }
 
   function startGame() {         
-    circleTurn = false          ////////   here
+    circleTurn = false
     cellElements.forEach(cell => {
       cell.classList.remove(X_CLASS)
       cell.classList.remove(CIRCLE_CLASS)
@@ -82,7 +91,7 @@ $(document).ready(() => {
     cell.classList.add(currentClass)
   }
 
-  function swapTurns() {     /////////// here
+  function swapTurns() {
     circleTurn = !circleTurn
   }
 
@@ -96,7 +105,7 @@ $(document).ready(() => {
     }
   }
 
-  function checkWin(currentClass) { //////////////////     here
+  function checkWin(currentClass) {
     return WINNING_COMBINATIONS.some(combination => {
       return combination.every(index => {
         return cellElements[index].classList.contains(currentClass)
@@ -113,11 +122,22 @@ $(document).ready(() => {
 
   connect.on('first_turn', data => {
     myTurn = data.myTurn
+    firstMove = true
+    startGame()
   })
 
   connect.on('restart_game', (msg) => {
     if (msg=='restart_game') {
       startGame()
+      firstTurn()
     }
+  })
+
+  connect.on('request_accepted', data => {
+    if (data.accepted) {
+      document.getElementById("arena").style.display = 'block'
+      document.getElementById("board").style.pointerEvents = 'none'
+    }
+    startGame()
   })
 });

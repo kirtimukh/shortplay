@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/tictactoe.css') }}">
+<script src="{{ url_for('static', filename='scripts/tictactoe.js') }}" defer></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<div class="playarea">
+  <div class="winning-message" id="winningMessage">
+    <div data-winning-message-text></div>
+  </div>
+  <div class="board" id="board">
+    <div class="cell" id="cell-1" data-cell></div>
+    <div class="cell" id="cell-2" data-cell></div>
+    <div class="cell" id="cell-3" data-cell></div>
+    <div class="cell" id="cell-4" data-cell></div>
+    <div class="cell" id="cell-5" data-cell></div>
+    <div class="cell" id="cell-6" data-cell></div>
+    <div class="cell" id="cell-7" data-cell></div>
+    <div class="cell" id="cell-8" data-cell></div>
+    <div class="cell" id="cell-9" data-cell></div>
+  </div>
+  <div class="restart-button" id="restartButton">Restart</div>
+</div>
+
+{% endblock %}

@@ -7,6 +7,8 @@ csp = {
     'style-src': [
             'https://shortplay.herokuapp.com',
             'https://maxcdn.bootstrapcdn.com',
+            'https://cdnjs.cloudflare.com',
+            'https://ajax.googleapis.com'
         ],
 }
 

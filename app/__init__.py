@@ -7,15 +7,15 @@ csp = {
     'default-src': '\'self\'',
     'style-src': [
             '\'self\'',
-            'https://maxcdn.bootstrapcdn.com',
-            'https://cdnjs.cloudflare.com',
-            'https://ajax.googleapis.com'
+            '\'unsafe-inline\' https://maxcdn.bootstrapcdn.com',
+            '\'unsafe-inline\' https://cdnjs.cloudflare.com',
+            '\'unsafe-inline\' https://ajax.googleapis.com'
         ],
     'script-src': [
             '\'self\'',
-            'https://maxcdn.bootstrapcdn.com',
-            'https://cdnjs.cloudflare.com',
-            'https://ajax.googleapis.com'
+            '\'unsafe-inline\' https://maxcdn.bootstrapcdn.com',
+            '\'unsafe-inline\' https://cdnjs.cloudflare.com',
+            '\'unsafe-inline\' https://ajax.googleapis.com'
         ],
 }
 

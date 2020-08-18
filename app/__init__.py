@@ -5,7 +5,7 @@ from flask_talisman import Talisman
 
 csp = {
     'style-src': [
-            SELF,
+            'self',
             'https://maxcdn.bootstrapcdn.com',
         ],
 }

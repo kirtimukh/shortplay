@@ -29,7 +29,7 @@
             {% block content %}{% endblock %}
         </div>
     </body>
-    <script>
+    <script nonce="{{ csp_nonce() }}">
         base_url = "{{ base_url }}"
     </script>
 </html>

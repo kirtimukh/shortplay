@@ -1,3 +1,6 @@
+document.getElementById("requestPlay").addEventListener("click", requestPlay);
+
+
 let connection = io.connect(base_url)
 
 

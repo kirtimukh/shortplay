@@ -4,6 +4,7 @@ from flask_talisman import Talisman
 
 
 csp = {
+    'default-src': 'https://shortplay.herokuapp.com',
     'style-src': [
             'https://shortplay.herokuapp.com',
             'https://maxcdn.bootstrapcdn.com',

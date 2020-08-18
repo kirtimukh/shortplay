@@ -17,7 +17,7 @@ csp = {
             '\'unsafe-inline\' https://cdnjs.cloudflare.com',
             '\'unsafe-inline\' https://ajax.googleapis.com'
         ],
-    'server': ''
+    'server': 'somesome'
 }
 
 app = Flask(__name__, static_url_path='', 

@@ -12,7 +12,8 @@ csp = {
 
 app = Flask(__name__, static_url_path='', 
             static_folder='static')
-talisman = Talisman(app, content_security_policy=csp)
+talisman = Talisman(app, content_security_policy=csp,
+                    content_security_policy_nonce_in=['style-src'])
 socketio = SocketIO(app, engineio_logger=True)
 
 
